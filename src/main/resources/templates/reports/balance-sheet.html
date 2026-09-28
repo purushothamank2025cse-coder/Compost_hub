@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Balance Sheet</title><link rel="stylesheet" href="/css/style.css"></head>
+<body><nav>
+  <a href="/">Dashboard</a>
+  <a href="/product">Products</a>
+  <a href="/inventory">Inventory</a>
+  <a href="/waste">Waste Intake</a>
+  <a href="/purchase">Purchases</a>
+  <a href="/sales">Sales</a>
+  <a href="/processing">Processing</a>
+  <a href="/digester">Digesters</a>
+  <a href="/budget">Budgets</a>
+  <a href="/reports">Reports</a>
+</nav><main class="container"><h1>Balance Sheet Overview</h1><div class="card"><p>Products: <b th:text="${productCount}">0</b></p><p>Inventory quantity: <b th:text="${inventoryQuantity}">0</b></p><p>Open vendor purchases: <b th:text="${purchaseCost}">0</b></p><p>Fertilizer receivables: <b th:text="${salesRevenue}">0</b></p></div></main></body></html>

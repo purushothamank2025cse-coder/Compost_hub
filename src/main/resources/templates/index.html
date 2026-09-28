@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CompostHub Dashboard</title><link rel="stylesheet" href="/css/style.css"></head>
+<body>
+<nav>
+  <a href="/">Dashboard</a>
+  <a href="/product">Products</a>
+  <a href="/inventory">Inventory</a>
+  <a href="/waste">Waste Intake</a>
+  <a href="/purchase">Purchases</a>
+  <a href="/sales">Sales</a>
+  <a href="/processing">Processing</a>
+  <a href="/digester">Digesters</a>
+  <a href="/budget">Budgets</a>
+  <a href="/reports">Reports</a>
+</nav>
+<main class="container">
+  <section class="hero"><div><p class="eyebrow">CIRCULAR ORGANIC WASTE PLATFORM</p><h1>CompostHub</h1><p>Track organic waste intake, processing, inventory, products, purchases and sales from one place.</p></div><a class="button" href="/waste/new">Record Waste</a></section>
+  <section class="stats">
+    <div class="stat"><span>Products</span><strong th:text="${productCount}">0</strong></div>
+    <div class="stat"><span>Inventory</span><strong th:text="${inventoryCount}">0</strong></div>
+    <div class="stat"><span>Waste Intake</span><strong th:text="${wasteCount}">0</strong></div>
+    <div class="stat"><span>Sales Orders</span><strong th:text="${salesCount}">0</strong></div>
+  </section>
+  <section class="card">
+    <h2>Quick actions</h2>
+    <div class="quick-links">
+      <a href="/product/new">Add product</a><a href="/inventory/new">Add inventory</a><a href="/processing/new">Create processing batch</a><a href="/purchase/new">Create purchase</a><a href="/sales/new">Create sale</a><a href="/reports">Open reports</a>
+    </div>
+  </section>
+</main>
+</body></html>

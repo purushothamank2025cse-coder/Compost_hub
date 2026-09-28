@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Budgets - CompostHub</title><link rel="stylesheet" href="/css/style.css"></head>
+<body>
+<nav>
+  <a href="/">Dashboard</a>
+  <a href="/product">Products</a>
+  <a href="/inventory">Inventory</a>
+  <a href="/waste">Waste Intake</a>
+  <a href="/purchase">Purchases</a>
+  <a href="/sales">Sales</a>
+  <a href="/processing">Processing</a>
+  <a href="/digester">Digesters</a>
+  <a href="/budget">Budgets</a>
+  <a href="/reports">Reports</a>
+</nav>
+<main class="container">
+  <div class="page-head"><div><h1>Budgets</h1><p>Manage budgets records.</p></div><a class="button" href="/budget/new">+ Add</a></div>
+  <div class="card table-wrap">
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Quantity</th><th>Amount</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr th:each="item : ${budgets}">
+          <td th:text="${item.id}"></td>
+          <td th:text="${item.name}"></td>
+          <td><span class="badge" th:text="${item.status ?: 'New'}"></span></td>
+          <td th:text="${item.quantity ?: '-'}"></td>
+          <td th:text="${item.amount ?: '-'}"></td>
+          <td class="actions"><a th:href="@{/budget/edit/{id}(id=${item.id})}">Edit</a><a class="danger" th:href="@{/budget/delete/{id}(id=${item.id})}" onclick="return confirm('Delete this record?')">Delete</a></td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(budgets)}"><td colspan="6" class="empty">No records yet.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+</body></html>
